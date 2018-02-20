@@ -1,0 +1,55 @@
+<section class="container">
+    <div class="tile is-ancestor">
+        <div class="tile is-parent">
+            <article class="tile is-child notification is-success">
+                <h1 class="title">Drinks Menu</h1>
+            </article>
+        </div>
+    </div>
+</section>
+<section class="section">
+    <div class="container">
+        <div class="dropdown" ng-class="$ctrl.isActive && 'is-active'">
+            <div class="dropdown-trigger" ng-click="$ctrl.toggleDropdown()">
+                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                    <span>Select a Category</span>
+                    <span class="icon is-small">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                    <a href="drink.strCategory" class="dropdown-item" ng-repeat="drink in $ctrl.drinks" ng-click="$ctrl.showByCategory($event,drink.strCategory)">{{drink.strCategory}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                       {{$ctrl.categoryTitle}}
+                    </h1>
+                </div>
+            </div>
+        </section>
+        <div id="category-drinks" class="container">
+            <div class="columns is-multiline">
+                <div class="column is-one-quarter" ng-repeat="drink in $ctrl.categoryDrinks">
+                    <div class="card">
+                        <div class="card-image">
+                            <figure class="image is-4by3">
+                                <img ng-src="{{drink.image}}" alt="Placeholder image">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <p class="title is-6">{{drink.strDrink}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
