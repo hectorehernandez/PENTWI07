@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/Common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { DrinksModule } from './drinks/drinks.module';
 import { CommonModule } from '@angular/common';
 import { DrinkListComponent } from './drinks/drink-list.component';
@@ -20,7 +20,7 @@ import { DrinkService } from './drinks/drink.service';
     HttpClientModule,
     DrinksModule
   ],
-  providers:[DrinkService],
+  providers: [DrinkService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

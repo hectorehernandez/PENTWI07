@@ -9,8 +9,8 @@
 </section>
 <section class="section">
     <div class="container">
-        <div class="dropdown is-active" >
-            <div class="dropdown-trigger" >
+        <div class="dropdown" [ngClass]="isActive && 'is-active'">
+            <div class="dropdown-trigger" (click)="toggleDropdown()">
                 <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
                     <span>Select a Category</span>
                     <span class="icon is-small">
@@ -20,28 +20,28 @@
             </div>
             <div class="dropdown-menu" id="dropdown-menu" role="menu">
                 <div class="dropdown-content">
-                    <a href="#" class="dropdown-item" *ngFor="let category of categories">{{category}}</a>
+                    <a href="#" class="dropdown-item" *ngFor="let category of categories" (click)="showByCategory($event,category.strCategory)">{{category.strCategory}}</a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div class="container">
+    <div class="container">
         <section class="hero">
             <div class="hero-body">
                 <div class="container">
                     <h1 class="title">
-                       {{$ctrl.categoryTitle}}
+                        {{categoryTitle}}
                     </h1>
                 </div>
             </div>
         </section>
         <div id="category-drinks" class="container">
             <div class="columns is-multiline">
-                <div class="column is-one-quarter" ng-repeat="drink in $ctrl.categoryDrinks">
+                <div class="column is-one-quarter" *ngFor="let drink of drinks">
                     <div class="card">
                         <div class="card-image">
                             <figure class="image is-4by3">
-                                <img ng-src="{{drink.image}}" alt="Placeholder image">
+                                <img [src]="drink.image" alt="Placeholder image">
                             </figure>
                         </div>
                         <div class="card-content">
@@ -51,5 +51,5 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 </section>
